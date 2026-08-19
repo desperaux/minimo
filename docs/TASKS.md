@@ -29,7 +29,7 @@ Exit: fresh clone can install, migrate, seed, test and build using documented co
 - [~] Secure sessions/recovery/rate limits — Clerk sessions connected; app-specific limits remain
 - [x] Workspace and membership model — first migration and owner membership path connected
 - [x] Business profile and invoice defaults — onboarding persistence connected
-- [ ] Logo upload validation/storage
+- [x] Logo upload validation/storage — authenticated R2 upload and retrieval path with PNG/JPEG/WebP validation.
 - [ ] Tenant-scoped repository pattern and isolation tests
 - [ ] Onboarding UI and empty dashboard
 

@@ -857,7 +857,27 @@ function Settings({
   setThemeMode: (mode: "system" | "dark" | "light") => void;
 }) {
   const [notice, setNotice] = useState("");
+  const [logoUrl, setLogoUrl] = useState("/api/v1/workspace/logo");
+  const [uploadingLogo, setUploadingLogo] = useState(false);
   const save = (message: string) => setNotice(message);
+
+  const uploadLogo = async (file: File) => {
+    setUploadingLogo(true);
+    setNotice("");
+    const form = new FormData();
+    form.append("file", file);
+    try {
+      const response = await fetch("/api/v1/workspace/logo", { method: "PUT", body: form });
+      const result = await response.json() as { ok: boolean; data?: { logoUrl?: string }; error?: { message?: string } };
+      if (!response.ok || !result.ok) throw new Error(result.error?.message || "We could not upload your logo. Try again.");
+      setLogoUrl(`${result.data?.logoUrl || "/api/v1/workspace/logo"}&cache=${Date.now()}`);
+      save("Logo uploaded.");
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : "We could not upload your logo. Try again.");
+    } finally {
+      setUploadingLogo(false);
+    }
+  };
   return (
     <>
       <header className="page-header">
@@ -922,6 +942,15 @@ function Settings({
           <h2>Business profile</h2>
           <p className="subtle" style={{ marginTop: 6 }}>Shown on your invoices and client payment pages.</p>
           <div className="form-section" style={{ marginTop: 20 }}>
+            <div className="field">
+              <label htmlFor="business-logo">Business logo</label>
+              <div className="logo-settings-row">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="logo-settings-preview" src={logoUrl} alt="" onError={event => { event.currentTarget.hidden = true; }} />
+                <input id="business-logo" type="file" accept="image/png,image/jpeg,image/webp" disabled={uploadingLogo} onChange={event => { const file = event.target.files?.[0]; if (file) void uploadLogo(file); event.target.value = ""; }} />
+              </div>
+              <span className="subtle" style={{ fontSize: 12 }}>PNG, JPEG, or WebP up to 5 MB.</span>
+            </div>
             <div className="field">
               <label htmlFor="business-name">Business name</label>
               <input id="business-name" defaultValue="minimo Studio" />

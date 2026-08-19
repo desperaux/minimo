@@ -53,6 +53,7 @@ Updated: 2026-08-19
 - Inline client creation uses the shared email normalization rule
 - Clients screen creation uses the same shared email normalization rule
 - Onboarding uses the same shared email normalization rule for support email
+- Authenticated business-logo upload to Cloudflare R2 from Settings, with server-side image validation
 - Clerk authentication boundary, Neon workspace schema, migration script, and server-authoritative onboarding persistence
 - Auth submission uses shared email validation and focuses invalid-input feedback
 - Invoice draft validation uses the same shared email normalization rule
@@ -85,7 +86,7 @@ npm run check
 - Production Clerk/Neon credentials and environment setup
 - Production issuance wiring for server-authoritative calculation and persisted breakdown
 - Invoice numbering transactions
-- PDF generation and object storage
+- PDF generation and object storage for PDFs/exports
 - Email provider, deliverability webhooks, and transactional outbox
 - Stripe Connect onboarding, checkout, and verified payment webhooks
 - Reminder scheduler and background workers
