@@ -2315,6 +2315,56 @@ label {
   box-shadow: var(--shadow-card);
 }
 
+.onboarding-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.onboarding-actions .button {
+  flex: 1;
+}
+
+.logo-drop {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 28px 20px;
+  border: 1px dashed var(--border-focus);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--brand-green) 5%, transparent);
+  text-align: center;
+}
+
+.logo-placeholder {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  margin-bottom: 4px;
+  border-radius: 12px;
+  background: var(--brand-green);
+  color: var(--ink-950);
+  font-size: 24px;
+}
+
+.logo-drop strong,
+.logo-drop span {
+  display: block;
+}
+
+.logo-drop span {
+  color: var(--ink-500);
+  font-size: 13px;
+}
+
+@media (max-width: 520px) {
+  .onboarding-actions {
+    flex-direction: column-reverse;
+  }
+}
+
 .auth-card {
   width: min(100%, 420px);
   margin: 8vh auto 0;
@@ -3088,4 +3138,3 @@ label {
     gap: 6px;
   }
 }
-
