@@ -19,7 +19,8 @@ minimo uses separate local, preview, staging, and production environments. Data,
 |---|---|---|---|---|
 | `APP_URL` | Optional | Required | Required | Canonical application URL |
 | `DATABASE_URL` | Not required yet | Required when persistence is enabled | Required | Environment-specific PostgreSQL connection |
-| `AUTH_PROVIDER_KEY` | Not required yet | Test credential | Production credential | Authentication provider access |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Optional for local bypass | Test credential | Production credential | Clerk browser authentication |
+| `CLERK_SECRET_KEY` | Not required for local bypass | Test credential | Production credential | Clerk server authentication |
 | `STRIPE_SECRET_KEY` | Not required yet | Stripe test mode | Stripe production mode | Server-side Stripe access |
 | `STRIPE_WEBHOOK_SECRET` | Not required yet | Test webhook signing secret | Production webhook signing secret | Webhook verification |
 | `EMAIL_PROVIDER_API_KEY` | Not required yet | Test/sandbox credential | Production credential | Transactional delivery |
@@ -35,6 +36,7 @@ minimo uses separate local, preview, staging, and production environments. Data,
 - Public URLs, cookies, webhook endpoints, storage buckets, and job queues are environment-specific.
 - Missing integration variables should fail the affected production path clearly; the local prototype remains runnable without them.
 - Secrets are injected by the deployment environment or a local untracked `.env.local` file.
+- `DEV_AUTH_BYPASS_USER_ID` and `DEV_AUTH_BYPASS_EMAIL` are local-only smoke-test variables and must never be set in production.
 
 ## Local setup
 

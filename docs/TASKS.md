@@ -19,16 +19,16 @@ This is the execution order. A task is not complete until its definition of done
 - [x] Create local/preview/staging/production separation
 - [x] Add `.env.example` matching `ENVIRONMENTS.md`
 - [~] Configure error monitoring and structured logging with redaction — structured logging/redaction is present; monitoring is not connected.
-- [ ] Establish migration and seed workflow
+- [x] Establish migration workflow for identity/workspace foundation; seed data remains intentionally out of scope
 
 Exit: fresh clone can install, migrate, seed, test and build using documented commands.
 
 ## Milestone 1 â€” Identity and workspace
 
-- [ ] Authentication and email verification
-- [ ] Secure sessions/recovery/rate limits
-- [ ] Workspace and membership model
-- [ ] Business profile and invoice defaults
+- [~] Authentication and email verification — Clerk boundary connected; deployment configuration and verification settings remain
+- [~] Secure sessions/recovery/rate limits — Clerk sessions connected; app-specific limits remain
+- [x] Workspace and membership model — first migration and owner membership path connected
+- [x] Business profile and invoice defaults — onboarding persistence connected
 - [ ] Logo upload validation/storage
 - [ ] Tenant-scoped repository pattern and isolation tests
 - [ ] Onboarding UI and empty dashboard

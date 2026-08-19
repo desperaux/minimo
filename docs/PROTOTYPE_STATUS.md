@@ -53,6 +53,7 @@ Updated: 2026-08-19
 - Inline client creation uses the shared email normalization rule
 - Clients screen creation uses the same shared email normalization rule
 - Onboarding uses the same shared email normalization rule for support email
+- Clerk authentication boundary, Neon workspace schema, migration script, and server-authoritative onboarding persistence
 - Auth submission uses shared email validation and focuses invalid-input feedback
 - Invoice draft validation uses the same shared email normalization rule
 - Shared email validation rejects oversized addresses
@@ -81,8 +82,7 @@ npm run check
 
 ## Intentionally not production-connected
 
-- Authentication and verified email
-- Workspace/database persistence
+- Production Clerk/Neon credentials and environment setup
 - Production issuance wiring for server-authoritative calculation and persisted breakdown
 - Invoice numbering transactions
 - PDF generation and object storage
@@ -92,4 +92,4 @@ npm run check
 - Export/deletion execution and retention enforcement
 - Monitoring, backups, restore drills, and support tooling
 
-These remain gated by the unresolved entries in [`DECISIONS.md`](./DECISIONS.md). Owner options and approval fields are collected in [`DECISION_REQUESTS.md`](./DECISION_REQUESTS.md). The prototype must not be presented as a live invoicing or payment system until those decisions and launch gates are completed.
+The remaining items are gated by the unresolved entries in [`DECISIONS.md`](./DECISIONS.md). Owner options and approval fields are collected in [`DECISION_REQUESTS.md`](./DECISION_REQUESTS.md). The prototype must not be presented as a live invoicing or payment system until those decisions and launch gates are completed.

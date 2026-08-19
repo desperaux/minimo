@@ -34,6 +34,6 @@ npm run format:check
 
 ## Current scope
 
-The prototype is local and mock-backed. Authentication, PostgreSQL persistence, email delivery, PDF generation, Stripe Connect, and background jobs are intentionally not connected while the corresponding decisions in [`docs/DECISIONS.md`](./docs/DECISIONS.md) remain unresolved.
+Clerk authentication and Neon-backed workspace onboarding are now connected when the required environment variables are configured. Invoice persistence, email delivery, PDF generation, Stripe Connect, and background jobs remain intentionally unconnected. See [`docs/DEPLOYMENT.md`](./docs/DEPLOYMENT.md) for local smoke testing and deployment setup.
 
 Read the documentation in the order described by [`docs/README.md`](./docs/README.md) before adding production behavior.

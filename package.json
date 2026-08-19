@@ -14,11 +14,14 @@
     "lint": "eslint .",
     "format": "eslint . --fix",
     "format:check": "eslint .",
+    "db:migrate": "node scripts/migrate.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "check": "npm test && npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.36.2",
+    "@neondatabase/serverless": "^1.1.0",
     "next": "^15.5.23",
     "react": "19.1.1",
     "react-dom": "19.1.1"
