@@ -4,6 +4,7 @@
   --sidebar-bg: #070908;
   --surface: #0c100e;
   --surface-raised: #111713;
+  --surface-muted: #151d18;
   --surface-hover: #141c17;
   --border: #16201a;
   --border-subtle: #121914;
@@ -57,6 +58,7 @@
   --sidebar-bg: #ffffff;
   --surface: #ffffff;
   --surface-raised: #f0f4f1;
+  --surface-muted: #e8efea;
   --surface-hover: #e8f0eb;
   --border: #dde4df;
   --border-subtle: #edf2ee;
@@ -660,8 +662,8 @@ h3 {
    ========================================================================== */
 
 .priority-banner {
-  background: var(--surface);
-  border: 1px solid var(--border-subtle);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card, 16px);
   padding: 20px;
   margin-bottom: 22px;
@@ -673,8 +675,8 @@ h3 {
 }
 
 [data-theme="dark"] .priority-banner {
-  background: #0d1711;
-  border: 1px solid #1a3022;
+  background: var(--surface-raised);
+  border: 1px solid #294635;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
