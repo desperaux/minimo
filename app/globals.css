@@ -2404,6 +2404,11 @@ label {
   background: var(--surface-raised);
 }
 
+.field-success {
+  color: var(--success);
+  font-size: 12px;
+}
+
 @media (max-width: 520px) {
   .onboarding-actions {
     flex-direction: column-reverse;

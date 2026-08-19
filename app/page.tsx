@@ -37,6 +37,30 @@ const money = (cents: number) => new Intl.NumberFormat("en-US", { style: "curren
 const invoiceStatusLabel = (status: DemoInvoice["status"]) =>
   status === "sent" ? "Sent" : status === "paid" ? "Paid" : status === "overdue" ? "Overdue" : "Void";
 
+async function compressLogoForUpload(file: File) {
+  const objectUrl = URL.createObjectURL(file);
+  try {
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const element = new Image();
+      element.onload = () => resolve(element);
+      element.onerror = () => reject(new Error("We could not read that image. Choose a PNG, JPEG, or WebP file."));
+      element.src = objectUrl;
+    });
+    const scale = Math.min(1, 2400 / image.naturalWidth, 2400 / image.naturalHeight);
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+    canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+    const context = canvas.getContext("2d");
+    if (!context) throw new Error("We could not prepare that image. Try another logo.");
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, "image/webp", 0.86));
+    if (!blob) throw new Error("We could not compress that image. Try another logo.");
+    return new File([blob], "logo.webp", { type: "image/webp" });
+  } finally {
+    URL.revokeObjectURL(objectUrl);
+  }
+}
+
 /* --- SVG Icons --- */
 function IconHome({ className = "nav-svg-icon" }: { className?: string }) {
   return (
@@ -859,21 +883,24 @@ function Settings({
   const [notice, setNotice] = useState("");
   const [logoUrl, setLogoUrl] = useState("/api/v1/workspace/logo");
   const [uploadingLogo, setUploadingLogo] = useState(false);
+  const [logoMessage, setLogoMessage] = useState("");
+  const [logoError, setLogoError] = useState("");
   const save = (message: string) => setNotice(message);
 
   const uploadLogo = async (file: File) => {
     setUploadingLogo(true);
-    setNotice("");
-    const form = new FormData();
-    form.append("file", file);
+    setLogoMessage("");
+    setLogoError("");
     try {
+      const form = new FormData();
+      form.append("file", await compressLogoForUpload(file));
       const response = await fetch("/api/v1/workspace/logo", { method: "PUT", body: form });
       const result = await response.json() as { ok: boolean; data?: { logoUrl?: string }; error?: { message?: string } };
       if (!response.ok || !result.ok) throw new Error(result.error?.message || "We could not upload your logo. Try again.");
       setLogoUrl(`${result.data?.logoUrl || "/api/v1/workspace/logo"}&cache=${Date.now()}`);
-      save("Logo uploaded.");
+      setLogoMessage("Logo uploaded.");
     } catch (error) {
-      setNotice(error instanceof Error ? error.message : "We could not upload your logo. Try again.");
+      setLogoError(error instanceof Error ? error.message : "We could not upload your logo. Try again.");
     } finally {
       setUploadingLogo(false);
     }
@@ -944,6 +971,8 @@ function Settings({
           <div className="form-section" style={{ marginTop: 20 }}>
             <div className="field">
               <label htmlFor="business-logo">Business logo</label>
+              {logoError && <span className="field-error" role="alert">{logoError}</span>}
+              {logoMessage && <span className="field-success" role="status">{logoMessage}</span>}
               <div className="logo-settings-row">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className="logo-settings-preview" src={logoUrl} alt="" onError={event => { event.currentTarget.hidden = true; }} />
