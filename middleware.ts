@@ -14,5 +14,5 @@ export default function middleware(request: NextRequest, event: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ["/((?!_next|.*\\..*).*)", "/api/(.*)"],
+  matcher: ["/((?!_next|__clerk|.*\\..*).*)", "/api/(.*)", "/__clerk/:path*"],
 };
