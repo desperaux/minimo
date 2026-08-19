@@ -1,11 +1,11 @@
-# Junvo — Technical Architecture
+# minimo — Technical Architecture
 
 > Version 1.0 · Implementation blueprint  
 > Read with [`PRD.md`](./PRD.md) and [`DESIGN.md`](./DESIGN.md)
 
 ## 1. Architecture goals
 
-Junvo should begin as a **modular monolith**: one deployable web application, one primary relational database, and independently executed background workers. This keeps the system understandable while preserving boundaries that can later be extracted.
+minimo should begin as a **modular monolith**: one deployable web application, one primary relational database, and independently executed background workers. This keeps the system understandable while preserving boundaries that can later be extracted.
 
 The architecture must prioritize:
 
@@ -30,7 +30,7 @@ This is the default build path, not an irreversible mandate.
 | Database | PostgreSQL | Transactions, constraints, JSON support, reliable relational model |
 | ORM | Drizzle ORM | Typed SQL and explicit migrations; Prisma is acceptable if preferred |
 | Authentication | Clerk, Better Auth, or Auth.js | Avoid building credential security from scratch |
-| Payments | Stripe Billing + Stripe Connect | Junvo subscriptions plus seller payment acceptance |
+| Payments | Stripe Billing + Stripe Connect | minimo subscriptions plus seller payment acceptance |
 | Email | Resend or Postmark | Transactional delivery events and templates |
 | Jobs | Inngest, Trigger.dev, or a Postgres-backed queue | Retries, scheduled reminders, observability |
 | Files | S3-compatible object storage | Logos, generated PDFs, export archives |
@@ -46,7 +46,7 @@ Do not add Redis, microservices, Kubernetes, GraphQL, or event streaming until m
 
 ```mermaid
 flowchart TD
-    Seller["Seller browser"] --> Web["Junvo web application"]
+    Seller["Seller browser"] --> Web["minimo web application"]
     Client["Client browser"] --> Web
     Web --> DB["PostgreSQL"]
     Web --> Store["Object storage"]
@@ -66,7 +66,7 @@ flowchart TD
 ## 4. Repository layout
 
 ```text
-junvo/
+minimo/
 ├── app/
 │   ├── (marketing)/
 │   ├── (auth)/
@@ -203,7 +203,7 @@ invoice_prefix NULL
 next_invoice_sequence
 logo_object_key NULL
 support_email NULL
-stripe_customer_id NULL          # Junvo subscription
+stripe_customer_id NULL          # minimo subscription
 stripe_connected_account_id NULL # seller payment account
 stripe_connect_status
 created_at
@@ -513,7 +513,7 @@ Every job has:
 
 ### Separate concerns
 
-1. **Junvo billing:** Junvo's Stripe account charges users for Junvo plans.
+1. **minimo billing:** minimo's Stripe account charges users for minimo plans.
 2. **Seller payments:** Stripe Connect enables each seller to receive client invoice payments.
 
 These must use separate service modules and identifiers.
@@ -521,7 +521,7 @@ These must use separate service modules and identifiers.
 ### Recommended integration
 
 - Use Stripe-hosted Connect onboarding.
-- Use Stripe-hosted Checkout or Payment Links/session flow rather than collecting payment details in Junvo forms.
+- Use Stripe-hosted Checkout or Payment Links/session flow rather than collecting payment details in minimo forms.
 - Choose Standard/Express account and direct/destination charge model only after legal, UX, fee, and support review.
 - Store account/payment/session/customer IDs and safe status fields only.
 - Never store PAN, CVV, bank login, raw account numbers, identity documents, or Stripe secret values in the database.

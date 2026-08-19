@@ -1,12 +1,12 @@
-# Junvo — Product Requirements Document
+# minimo — Product Requirements Document
 
 > Version 1.0 · Build specification · US-first MVP  
-> Working product name: **Junvo** (not yet trademark-cleared)  
+> Working product name: **minimo** (not yet trademark-cleared)
 > Companion files: [`ARCHITECTURE.md`](./ARCHITECTURE.md) and [`DESIGN.md`](./DESIGN.md)
 
 ## 1. Product summary
 
-Junvo is a focused invoicing product for US freelancers and small service businesses. It helps a user create a professional invoice, deliver it reliably, see what happened, follow up without awkward manual chasing, and receive payment through the user's own connected Stripe account.
+minimo is a focused invoicing product for US freelancers and small service businesses. It helps a user create a professional invoice, deliver it reliably, see what happened, follow up without awkward manual chasing, and receive payment through the user's own connected Stripe account.
 
 The product is not an accounting suite. Its core loop is:
 
@@ -80,7 +80,7 @@ A small service-business operator or administrator managing invoices for a team,
 3. When an invoice becomes due, follow up politely so I do not have to write uncomfortable messages.
 4. When a client is ready to pay, remove unnecessary steps so payment can happen immediately.
 5. When something goes wrong, tell me what happened in plain language and how to fix it.
-6. When I leave Junvo, let me export my invoices and customer data.
+6. When I leave minimo, let me export my invoices and customer data.
 
 ## 6. Product principles
 
@@ -101,7 +101,7 @@ A small service-business operator or administrator managing invoices for a team,
 
 - A new user can create and send a valid invoice in under five minutes.
 - A returning user can create one from an existing client in under two minutes.
-- A client can view and pay without creating a Junvo account.
+- A client can view and pay without creating a minimo account.
 - Users can see an understandable invoice timeline.
 - Automated reminders reduce manual chasing.
 - Payment and email failures produce actionable recovery steps.
@@ -139,7 +139,7 @@ Targets should become numeric only after baseline beta data exists.
 - Live invoice preview and downloadable PDF
 - Save draft, duplicate, send, resend, void, and mark paid manually
 - Hosted public invoice page with secure opaque link
-- Invoice emails sent through Junvo's delivery provider
+- Invoice emails sent through minimo's delivery provider
 - Delivery, bounce, view, reminder, and payment timeline
 - Manual and scheduled reminders
 - Stripe Connect onboarding for seller payments
@@ -178,14 +178,14 @@ Targets should become numeric only after baseline beta data exists.
 | Currency | USD only at launch; data model remains currency-aware |
 | Payments | Stripe Connect; seller is the merchant receiving funds |
 | Client account | Not required |
-| Invoice delivery | Junvo email plus shareable secure link |
+| Invoice delivery | minimo email plus shareable secure link |
 | Invoice mutability | Sent financial snapshot is immutable; corrections create a revision or replacement |
 | Payment truth | Verified Stripe webhook events are authoritative |
 | Manual payment | Supported with actor and timestamp in audit trail |
-| Tax | User-entered rate/amount; Junvo does not calculate legal tax obligations |
+| Tax | User-entered rate/amount; minimo does not calculate legal tax obligations |
 | Numbering | Sequential per workspace; uniqueness enforced server-side |
 | Deletion | Financial records follow disclosed retention requirements; account access can be removed earlier |
-| Brand | Standalone Junvo product; brand system can later support sibling products |
+| Brand | Standalone minimo product; brand system can later support sibling products |
 
 ## 10. Information architecture
 
@@ -246,10 +246,10 @@ Targets should become numeric only after baseline beta data exists.
 ### 11.3 Client view and payment
 
 1. Client opens secure invoice link.
-2. Junvo records a privacy-conscious view event.
+2. minimo records a privacy-conscious view event.
 3. Client reviews seller identity, items, total, due date, and status.
 4. Client selects **Pay invoice**.
-5. Junvo creates or retrieves an idempotent Stripe payment session for the connected seller.
+5. minimo creates or retrieves an idempotent Stripe payment session for the connected seller.
 6. Client completes Stripe-hosted payment.
 7. Stripe webhook updates payment and invoice state.
 8. Client and seller receive confirmation.
@@ -338,7 +338,7 @@ Priority: **P0** required for launch, **P1** shortly after launch, **P2** later.
 - **DEL-001 P0:** Send invoice email using an authenticated sending domain.
 - **DEL-002 P0:** Include a secure opaque public link; never expose sequential database IDs.
 - **DEL-003 P0:** Record provider acceptance, delivery, bounce, complaint, and suppression events when available.
-- **DEL-004 P0:** Public page is usable without a Junvo account.
+- **DEL-004 P0:** Public page is usable without a minimo account.
 - **DEL-005 P0:** Link access is rate-limited and does not reveal other customer data.
 - **DEL-006 P0:** User can copy the public link and download the PDF.
 - **DEL-007 P0:** Resend requires confirmation and is throttled.
@@ -364,7 +364,7 @@ Priority: **P0** required for launch, **P1** shortly after launch, **P2** later.
 ### Payments
 
 - **PAY-001 P0:** Seller completes Stripe-hosted Connect onboarding.
-- **PAY-002 P0:** Junvo stores Stripe identifiers and status, never raw card or bank credentials.
+- **PAY-002 P0:** minimo stores Stripe identifiers and status, never raw card or bank credentials.
 - **PAY-003 P0:** Online payment is disabled until the connected account is eligible.
 - **PAY-004 P0:** Checkout clearly identifies seller, amount, currency, and invoice.
 - **PAY-005 P0:** Webhook signatures are verified using the raw request body.
@@ -397,7 +397,7 @@ Priority: **P0** required for launch, **P1** shortly after launch, **P2** later.
 - Line total = rounded quantity × unit price according to a single documented rounding policy.
 - Subtotal = sum of line totals.
 - Discount is applied according to its declared type and ordering.
-- Tax is calculated only from user-supplied settings; Junvo does not determine legal nexus or rates.
+- Tax is calculated only from user-supplied settings; minimo does not determine legal nexus or rates.
 - Amount due = subtotal − discount + tax − successful/recorded payments + applicable adjustments.
 - Due date cannot precede issue date.
 - Email addresses are length-limited and normalized for comparison.
@@ -463,7 +463,7 @@ Required before public launch:
 - Retention/deletion schedule
 - Incident-response plan
 - Data-subject request process
-- Refund/cancellation policy for Junvo subscriptions
+- Refund/cancellation policy for minimo subscriptions
 - Clear disclosure that payments are processed for sellers through Stripe
 
 Because the founder may be under the age required to enter platform, banking, or company agreements independently, an authorized adult or business representative must handle contracts and accounts wherever legally required. Obtain professional legal/tax review for the operating structure and launch documents.
@@ -548,7 +548,7 @@ Do not launch publicly until:
 
 - All P0 acceptance tests pass.
 - Stripe Connect live onboarding and webhook paths are verified.
-- No raw payment credentials touch Junvo systems.
+- No raw payment credentials touch minimo systems.
 - Email domain authentication and bounce/complaint handling are active.
 - Invoice totals match between editor, stored snapshot, PDF, public page, and checkout.
 - Authorization/tenant-isolation tests pass.
@@ -564,7 +564,7 @@ Do not launch publicly until:
 1. A new user can sign up, create a client, create an invoice, preview it, and send it.
 2. Refreshing or double-clicking send never delivers duplicate invoice emails.
 3. A client can open the secure link on mobile and understand the total and due date.
-4. A client can pay without creating a Junvo account.
+4. A client can pay without creating a minimo account.
 5. The seller is not marked paid until a verified Stripe webhook confirms success.
 6. A duplicate Stripe webhook does not create duplicate payments.
 7. A bounced invoice shows a recovery action to the seller.
@@ -581,7 +581,7 @@ Do not launch publicly until:
 
 Validate rather than hard-code the model into product architecture.
 
-- Free: limited sent invoices, Junvo branding, essential payment collection.
+- Free: limited sent invoices, minimo branding, essential payment collection.
 - Pro: unlimited or higher limits, custom branding, automated reminders, richer insights.
 - Optional transaction-based revenue must be disclosed before payment and evaluated against trust and Stripe Connect economics.
 - Do not surprise users with fees or lock export behind cancellation.
@@ -604,11 +604,11 @@ Validate rather than hard-code the model into product architecture.
 ## 26. Open decisions
 
 - Final legal entity and contracting party
-- Trademark/domain clearance for Junvo
+- Trademark/domain clearance for minimo
 - Exact authentication provider and method
 - Exact hosting region and infrastructure vendors
 - Stripe Connect account type and charge model after legal/financial review
-- Whether Junvo charges a platform fee at launch
+- Whether minimo charges a platform fee at launch
 - Free-plan invoice limit and paid price
 - Default reminder schedule and maximum frequency
 - Refund and partial-payment behavior
@@ -628,4 +628,3 @@ A feature is complete only when:
 - Unit/integration/end-to-end tests cover critical behavior.
 - Documentation and migrations are updated.
 - Security and privacy implications have been reviewed.
-

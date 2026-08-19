@@ -1,4 +1,4 @@
-# Junvo Prototype Status
+# minimo Prototype Status
 
 Updated: 2026-08-19
 

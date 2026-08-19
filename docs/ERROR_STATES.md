@@ -1,4 +1,4 @@
-# Junvo Error and Recovery States
+# minimo Error and Recovery States
 
 Every workflow must define what failed, what is safely preserved, and the next action. Never use “Something went wrong” when a more useful safe message exists.
 
@@ -48,7 +48,7 @@ Internal exception text, stack traces, SQL/provider codes, and secrets are never
 | PDF generation fails | Keep issued snapshot/queued state; retry job; do not send inconsistent attachment |
 | Provider temporarily rejects | Keep queued/retrying state with plain explanation |
 | Hard bounce | “Delivery failed. Check the email address or copy the secure link.” |
-| Complaint/suppression | Do not permit resend; explain recipient cannot be emailed through Junvo |
+| Complaint/suppression | Do not permit resend; explain recipient cannot be emailed through minimo |
 
 ## 5. Public invoice
 

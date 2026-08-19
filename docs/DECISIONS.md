@@ -1,4 +1,4 @@
-# Junvo Decision Log
+# minimo Decision Log
 
 This file freezes choices so coding agents do not repeatedly redesign the product. Only entries marked **Accepted** are authoritative.
 
@@ -40,7 +40,7 @@ Supersedes:
 ## ADR-003 â€” Client accounts
 
 **Status:** Accepted  
-**Decision:** Clients do not need Junvo accounts to view or pay invoices.
+**Decision:** Clients do not need minimo accounts to view or pay invoices.
 
 ## ADR-004 â€” Historical integrity
 
@@ -60,7 +60,7 @@ Supersedes:
 ## ADR-007 â€” Payments
 
 **Status:** Accepted  
-**Decision:** Junvo subscription billing and seller invoice payments are separate. Seller payments use Stripe Connect and Stripe-hosted collection. Verified webhooks are authoritative; Junvo does not store raw payment credentials or pool funds.
+**Decision:** minimo subscription billing and seller invoice payments are separate. Seller payments use Stripe Connect and Stripe-hosted collection. Verified webhooks are authoritative; minimo does not store raw payment credentials or pool funds.
 
 ## ADR-008 â€” Design direction
 
@@ -82,26 +82,26 @@ Supersedes:
 **Status:** Accepted with pre-launch verification gate  
 **Decision:**
 
-- Product name: Junvo.
-- Display name: Junvo.
+- Product name: minimo.
+- Display name: minimo.
 - Do not use the ® symbol.
-- Junvo may use ™ before registration.
+- minimo may use ™ before registration.
 - Record the final production domain after the owner purchases it.
 - Do not launch publicly or spend heavily on branding until a professional US trademark clearance search is complete.
 - The clearance search must cover similar names and relevant software, financial-service, invoicing, and SaaS classes—not only exact matches.
-- Junvo must not be represented as trademark-registered unless registration is separately verified and approved.
+- minimo must not be represented as trademark-registered unless registration is separately verified and approved.
 
 ## ADR-012 — Legal entity and operating structure
 
 **Status:** Accepted with launch gate  
 **Decision:**
 
-- Junvo will be operated through a US legal entity before paid launch.
+- minimo will be operated through a US legal entity before paid launch.
 - Stripe, banking, hosting, and contractual accounts must use truthful, matching business information.
 - An eligible adult authorized representative must complete agreements and regulated account verification where required.
-- Nigerian development or management activity must be documented truthfully; Junvo must not pretend that its team is located entirely in the US.
+- Nigerian development or management activity must be documented truthfully; minimo must not pretend that its team is located entirely in the US.
 - The product may be developed privately before entity formation.
-- Live seller onboarding, paid Junvo subscriptions, and production payment processing are blocked until the entity and representative are verified.
+- Live seller onboarding, paid minimo subscriptions, and production payment processing are blocked until the entity and representative are verified.
 - A qualified US/Nigerian professional must confirm tax and cross-border obligations before commercial launch.
 
 ## ADR-015 — Precision and rounding
@@ -138,7 +138,7 @@ Supersedes:
 - The MVP supports tax-exclusive pricing only.
 - The MVP supports one manually entered tax rate per line.
 - Automatic tax determination, tax-inclusive pricing, and compound taxes are outside MVP scope.
-- Junvo does not provide tax advice; sellers are responsible for selecting correct tax rates.
+- minimo does not provide tax advice; sellers are responsible for selecting correct tax rates.
 - Proportional discount rounding remainders use the largest-remainder method.
 
 ## ADR-017 — Invoice numbering
@@ -202,19 +202,19 @@ Supersedes:
 - Use direct charges on connected seller accounts.
 - The connected seller is merchant of record.
 - Funds move directly to the seller's connected Stripe account.
-- Junvo never stores card details or holds client funds.
+- minimo never stores card details or holds client funds.
 - Stripe Checkout or another Stripe-hosted payment surface collects payment.
 - Sellers handle processing fees, disputes, refunds, and negative balances according to their Stripe agreement.
-- Junvo receives payment state through verified, idempotent Stripe webhooks.
+- minimo receives payment state through verified, idempotent Stripe webhooks.
 - Sellers who cannot obtain an eligible Stripe connected account may still create invoices and record external/manual payments.
 
-## ADR-022 — Junvo fees
+## ADR-022 — minimo fees
 
 **Status:** Accepted  
 **Decision:**
 
-- Junvo charges no percentage or application fee on client payments at MVP.
-- Junvo earns revenue through Pro subscriptions only.
+- minimo charges no percentage or application fee on client payments at MVP.
+- minimo earns revenue through Pro subscriptions only.
 - Sellers pay Stripe's normal processing fees directly.
 - Do not silently add a convenience, payment, or platform fee.
 - Introducing transaction fees later requires a new ADR and advance notice.
@@ -251,13 +251,13 @@ Supersedes:
 - Stripe payment links.
 - Manual payment recording.
 - One automatic reminder schedule.
-- Junvo branding on invoices.
+- minimo branding on invoices.
 
 **Pro:**
 
 - $9 per month or $90 per year.
 - Unlimited reasonable invoice issuance under fair-use rules.
-- Remove Junvo invoice branding.
+- Remove minimo invoice branding.
 - Custom reminder schedules.
 - Recurring invoices when that feature is released.
 - Priority support.
@@ -274,15 +274,15 @@ Supersedes:
 **Status:** Accepted  
 **Decision:**
 
-- Junvo does not automatically refund payments.
+- minimo does not automatically refund payments.
 - Stripe refunds are initiated by the seller through an authorized workflow.
 - Refund status is synchronized through Stripe webhooks.
 - All payment creation and webhook processing is idempotent.
 - Stripe payments are for an exact amount; arbitrary overpayment is disabled.
 - Partial Stripe payments are outside MVP scope.
-- Manual payments may produce an overpaid balance, which Junvo displays clearly.
+- Manual payments may produce an overpaid balance, which minimo displays clearly.
 - Duplicate payments are flagged for seller review.
-- Junvo never silently applies an overpayment to another invoice.
+- minimo never silently applies an overpayment to another invoice.
 - Every refund and payment-state change creates an audit event.
 
 ## ADR-026 — Data retention
@@ -298,9 +298,9 @@ Supersedes:
 - Security logs: 12 months.
 - Email delivery-event metadata: 90 days.
 - Support conversations: 24 months after closure.
-- Junvo's own billing, tax, and accounting records: 7 years.
+- minimo's own billing, tax, and accounting records: 7 years.
 - Legal holds override normal deletion only where legally necessary.
-- Junvo never stores full card numbers, CVCs, government IDs, or client banking credentials.
+- minimo never stores full card numbers, CVCs, government IDs, or client banking credentials.
 
 ## ADR-027 — Infrastructure, storage and regions
 
@@ -316,11 +316,11 @@ Supersedes:
 - Object storage: Cloudflare R2.
 - PDFs: generated using `@react-pdf/renderer`.
 - DNS and edge protection: Cloudflare.
-- Do not use cPanel for Junvo.
+- Do not use cPanel for minimo.
 - Keep production and staging databases, buckets, and credentials separate.
 - Encrypt traffic in transit and use vendor encryption at rest.
 - Store secrets only in provider environment-variable/secret systems.
-- Vercel Hobby is allowed only for private development; use a commercial plan before running Junvo as a paid production service.
+- Vercel Hobby is allowed only for private development; use a commercial plan before running minimo as a paid production service.
 
 ## ADR-028 — Analytics, monitoring and consent
 

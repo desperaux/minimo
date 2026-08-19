@@ -1,4 +1,4 @@
-# Junvo Test Plan
+# minimo Test Plan
 
 This plan defines evidence required before code can be called complete. Tests must verify behavior, security, accessibility, and recoveryâ€”not only the happy path.
 

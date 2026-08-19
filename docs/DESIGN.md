@@ -1,11 +1,11 @@
-# Junvo — Product Design System and UX Specification
+# minimo — Product Design System and UX Specification
 
 > Version 1.0 · Responsive web application  
 > Read with [`PRD.md`](./PRD.md) and [`ARCHITECTURE.md`](./ARCHITECTURE.md)
 
 ## 1. Design direction
 
-Junvo should feel as easy and direct as a polished consumer money app, with the encouragement and clarity of a great learning product. It must not copy Cash App, Duolingo, or any competitor's artwork, characters, icons, layouts, or trade dress.
+minimo should feel as easy and direct as a polished consumer money app, with the encouragement and clarity of a great learning product. It must not copy Cash App, Duolingo, or any competitor's artwork, characters, icons, layouts, or trade dress.
 
 The emotional target is:
 
@@ -17,7 +17,7 @@ The emotional target is:
 
 ### Brand statement
 
-**Junvo makes getting paid feel straightforward.**
+**minimo makes getting paid feel straightforward.**
 
 ### Working tagline
 
@@ -53,7 +53,7 @@ Every status combines label, icon, and color. Amounts use tabular numerals and c
 
 ### Personality
 
-Junvo is optimistic, efficient, sharp, and human. It is not corporate-gray, childish, luxury-fintech, or aggressively playful.
+minimo is optimistic, efficient, sharp, and human. It is not corporate-gray, childish, luxury-fintech, or aggressively playful.
 
 ### Color palette
 
@@ -195,7 +195,7 @@ Keep the navigation intentionally small. Billing and help belong within settings
 
 ### Desktop sidebar
 
-- Junvo wordmark at top.
+- minimo wordmark at top.
 - Main links in the middle.
 - Help and user/workspace switcher at bottom.
 - Active item uses cobalt-tinted background, icon, label, and left/inner accent.
@@ -492,7 +492,7 @@ Client creation should work inline from the invoice editor and on a dedicated pa
 
 Show payment records, status, invoice, client, amount, date, and source. When Stripe is disconnected or needs action, use an actionable banner.
 
-Do not present Junvo as holding funds. Link to the seller's Stripe dashboard for payout/account management when appropriate.
+Do not present minimo as holding funds. Link to the seller's Stripe dashboard for payout/account management when appropriate.
 
 ## 7.12 Settings
 
@@ -513,7 +513,7 @@ This screen must maximize clarity and payment completion while respecting trust.
 
 ### Layout
 
-- Junvo mark small and secondary
+- minimo mark small and secondary
 - Seller logo/name prominent
 - Status and amount at the top
 - Invoice document below
@@ -824,7 +824,7 @@ Before accepting a screen:
 - Long data wraps safely.
 - Destructive actions explain consequences.
 - Money values use correct currency formatting and tabular numerals.
-- The UI does not imply Junvo holds seller funds.
+- The UI does not imply minimo holds seller funds.
 - No unearned trust claim or fake social proof appears.
 
 ## 17. Coding-agent design guardrails

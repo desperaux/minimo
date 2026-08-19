@@ -1,4 +1,4 @@
-# Junvo Build Plan
+# minimo Build Plan
 
 This is the execution order. A task is not complete until its definition of done and required tests pass. Do not start later payment/reminder work on an unstable invoice core.
 
@@ -138,7 +138,7 @@ Exit: export and closure work exactly as disclosed; retained data is justified a
 ## Milestone 10 â€” Pricing and public beta
 
 - [ ] Accept pricing/plan-limit decisions
-- [ ] Junvo subscription billing separated from seller payments
+- [ ] minimo subscription billing separated from seller payments
 - [ ] Server-side plan enforcement
 - [ ] Pricing/billing/cancellation UI
 - [ ] Preserve export/download after downgrade according to policy

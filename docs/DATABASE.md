@@ -1,4 +1,4 @@
-# Junvo Database Contract
+# minimo Database Contract
 
 This document defines database invariants. `ARCHITECTURE.md` explains context; this file governs schema implementation.
 

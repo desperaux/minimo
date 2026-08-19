@@ -1,4 +1,4 @@
-# Junvo Coding Agent Instructions
+# minimo Coding Agent Instructions
 
 This file is the highest-priority project instruction for coding agents. Place a copy at the repository root.
 

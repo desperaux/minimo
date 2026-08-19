@@ -1,4 +1,4 @@
-# Junvo Security and Privacy Requirements
+# minimo Security and Privacy Requirements
 
 This is an engineering baseline, not a certification claim. Final legal/privacy policies require qualified review.
 
@@ -10,7 +10,7 @@ This is an engineering baseline, not a certification claim. Final legal/privacy 
 | Internal | Feature flags, non-sensitive metrics | Authenticated staff access |
 | Confidential | Client emails, addresses, invoices, support records | Encryption, least privilege, redaction |
 | Restricted | Secrets, session tokens, webhook secrets | Secret manager, never logged/client-exposed |
-| Prohibited | Raw card/CVV, bank credentials, identity documents in MVP | Must not enter Junvo storage/logs |
+| Prohibited | Raw card/CVV, bank credentials, identity documents in MVP | Must not enter minimo storage/logs |
 
 ## 2. Authentication
 
@@ -50,8 +50,8 @@ This is an engineering baseline, not a certification claim. Final legal/privacy 
 - Enforce unique event IDs and idempotent processing.
 - Do not trust redirect parameters.
 - Store safe provider IDs/statuses only.
-- Separate Junvo subscription billing from connected-seller payments.
-- Do not claim Junvo is PCI certified merely because Stripe is used; document actual responsibility accurately.
+- Separate minimo subscription billing from connected-seller payments.
+- Do not claim minimo is PCI certified merely because Stripe is used; document actual responsibility accurately.
 
 ## 6. Input and output
 
@@ -98,7 +98,7 @@ Analytics uses pseudonymous IDs and never client PII.
 - Bounce, complaint, and suppression handling.
 - Acceptable Use Policy and suspension path.
 - Monitor unusual recipient volume, repeated bounces, and template abuse.
-- Do not allow Junvo to become a bulk-marketing sender.
+- Do not allow minimo to become a bulk-marketing sender.
 
 ## 11. Storage, backups and retention
 

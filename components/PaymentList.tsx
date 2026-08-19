@@ -18,7 +18,7 @@ export default function PaymentList() {
       <header className="dashboard-hero-header">
         <h1>Payments</h1>
         <p className="subtle" style={{ marginTop: 4 }}>
-          Track confirmed payments without treating Junvo as the holder of funds.
+          Track confirmed payments without treating minimo as the holder of funds.
         </p>
       </header>
 

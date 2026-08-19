@@ -6,7 +6,7 @@ describe("invoice document snapshot", () => {
     const source = {
       templateVersion: 1,
       calculationVersion: 1,
-      seller: { displayName: "Junvo Studio", email: "hello@example.com" },
+      seller: { displayName: "minimo Studio", email: "hello@example.com" },
       client: { displayName: "Maya Chen", email: "maya@example.com" },
       invoiceNumber: "INV-1043",
       issueDate: "2026-08-18",

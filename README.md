@@ -1,6 +1,6 @@
-# Junvo
+# minimo
 
-Junvo is a focused invoicing product for freelancers and small service businesses.
+minimo is a focused invoicing product for freelancers and small service businesses.
 
 This repository currently contains the first responsive UI prototype: dashboard, invoice editor, review/send flow, invoice detail timeline, client list, settings, and public invoice view.
 

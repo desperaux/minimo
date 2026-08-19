@@ -122,7 +122,7 @@ function IconMoon({ className }: { className?: string }) {
   );
 }
 
-function JunvoLogoMark({ className }: { className?: string }) {
+function MinimoLogoMark({ className }: { className?: string }) {
   return (
     <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none">
       <rect x="3.5" y="4.5" width="5.5" height="15" rx="2.75" fill="#00E575" transform="rotate(-15 6 12)" />
@@ -143,7 +143,7 @@ export default function Home() {
   const [client, setClient] = useState({ name: "Maya Chen", email: "maya@northstar.co", company: "Northstar Studio" });
   const [dates, setDates] = useState({ issue: "2026-08-18", due: "2026-09-01" });
   const [items, setItems] = useState<Item[]>([{ description: "Brand strategy and creative direction", quantity: "1", rate: "1850" }]);
-  const [notes, setNotes] = useState("Thank you for working with Junvo Studio.");
+  const [notes, setNotes] = useState("Thank you for working with minimo Studio.");
 
   /* Initialize and load saved theme preference */
   useEffect(() => {
@@ -287,8 +287,8 @@ export default function Home() {
         {/* Mobile Top Header Bar */}
         <header className="mobile-top-bar" aria-label="Mobile header">
           <div className="mobile-logo">
-            <JunvoLogoMark />
-            <span className="mobile-brand-name">Junvo</span>
+            <MinimoLogoMark />
+            <span className="mobile-brand-name">minimo</span>
           </div>
           <div className="mobile-top-right">
             <button
@@ -331,7 +331,7 @@ export default function Home() {
                 setClient({ name: selectedInvoice.client, email: selectedInvoice.email, company: "" });
                 setDates({ issue: "2026-08-18", due: "2026-09-01" });
                 setItems([{ description: "Brand strategy and creative direction", quantity: "1", rate: String(selectedInvoice.amount / 100) }]);
-                setNotes("Thank you for working with Junvo Studio.");
+                setNotes("Thank you for working with minimo Studio.");
                 setDraftError("");
                 setIsCreateModalOpen(true);
               }}
@@ -400,8 +400,8 @@ function Sidebar({ active, onNavigate }: { active: string; onNavigate: (screen: 
   return (
     <aside className="sidebar">
       <div className="wordmark">
-        <JunvoLogoMark />
-        <span>Junvo</span>
+        <MinimoLogoMark />
+        <span>minimo</span>
       </div>
       <nav className="nav" aria-label="Main navigation">
         <NavButton label="Home" icon={<IconHome />} active={active === "Home"} onClick={() => onNavigate("dashboard")} />
@@ -414,7 +414,7 @@ function Sidebar({ active, onNavigate }: { active: string; onNavigate: (screen: 
         <span className="help-link">Need a hand?</span>
         <div className="profile">
           <span className="avatar">J</span>
-          <span>Junvo Studio</span>
+          <span>minimo Studio</span>
         </div>
       </div>
     </aside>
@@ -872,7 +872,7 @@ function Settings({
         <section className="card">
           <h2>Appearance</h2>
           <p className="subtle" style={{ marginTop: 6 }}>
-            Customize how Junvo looks. Choose System to automatically follow your device settings.
+            Customize how minimo looks. Choose System to automatically follow your device settings.
           </p>
           <div className="theme-selector-grid" role="radiogroup" aria-label="Theme selection">
             <button
@@ -924,11 +924,11 @@ function Settings({
           <div className="form-section" style={{ marginTop: 20 }}>
             <div className="field">
               <label htmlFor="business-name">Business name</label>
-              <input id="business-name" defaultValue="Junvo Studio" />
+              <input id="business-name" defaultValue="minimo Studio" />
             </div>
             <div className="field">
               <label htmlFor="support-email">Support email</label>
-              <input id="support-email" defaultValue="hello@junvostudio.com" />
+              <input id="support-email" defaultValue="hello@minimostudio.com" />
             </div>
             <button className="button primary" onClick={() => save("Business profile saved in this prototype.")}>
               Save profile
@@ -1050,8 +1050,8 @@ function InvoiceDetail({
             <div className="invoice-preview">
               <div className="invoice-preview-top">
                 <div>
-                  <strong style={{ fontSize: 20 }}>Junvo Studio</strong>
-                  <p className="subtle" style={{ marginTop: 4 }}>hello@junvostudio.com</p>
+                  <strong style={{ fontSize: 20 }}>minimo Studio</strong>
+                  <p className="subtle" style={{ marginTop: 4 }}>hello@minimostudio.com</p>
                 </div>
                 <div className="invoice-title">
                   <strong>INVOICE</strong>
@@ -1098,7 +1098,7 @@ function InvoiceDetail({
                   <span>{money(invoice.amount)}</span>
                 </div>
               </div>
-              <div className="preview-note">Thank you for working with Junvo Studio.</div>
+              <div className="preview-note">Thank you for working with minimo Studio.</div>
             </div>
           </div>
           <div className="card">
@@ -1333,7 +1333,7 @@ function Preview({ client, dates, items, subtotal, notes }: any) {
         <div className="invoice-preview-top">
           <div className="wordmark" style={{ padding: 0 }}>
             <span className="wordmark-mark" />
-            Junvo Studio
+            minimo Studio
           </div>
           <div className="invoice-title">
             <strong>INVOICE</strong>
@@ -1428,7 +1428,7 @@ function Review({ client, items, subtotal, notes, onBack, onSend }: any) {
           <div className="form-section" style={{ marginTop: 22 }}>
             <div className="field">
               <label htmlFor="subject">Email subject</label>
-              <input id="subject" defaultValue="Invoice INV-1043 from Junvo Studio" />
+              <input id="subject" defaultValue="Invoice INV-1043 from minimo Studio" />
             </div>
             <div className="field">
               <label htmlFor="message">Personal message <span className="subtle">(Optional)</span></label>

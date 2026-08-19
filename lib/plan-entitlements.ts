@@ -1,4 +1,4 @@
-export type JunvoPlan = "free" | "pro";
+export type minimoPlan = "free" | "pro";
 
 export const PLAN_CATALOG = {
   free: {
@@ -13,12 +13,12 @@ export const PLAN_CATALOG = {
   },
 } as const;
 
-export function canIssueInvoice(plan: JunvoPlan, newlyIssuedThisCalendarMonth: number): boolean {
+export function canIssueInvoice(plan: minimoPlan, newlyIssuedThisCalendarMonth: number): boolean {
   if (!Number.isSafeInteger(newlyIssuedThisCalendarMonth) || newlyIssuedThisCalendarMonth < 0) throw new Error("Issued invoice count must be a non-negative safe integer.");
   return plan === "pro" || newlyIssuedThisCalendarMonth < PLAN_CATALOG.free.newlyIssuedInvoiceLimitPerCalendarMonth;
 }
 
-export function canUsePlanFeature(plan: JunvoPlan, feature: "pdf_download" | "stripe_payment_link" | "manual_payment" | "data_export" | "custom_reminder_schedule" | "remove_branding"): boolean {
+export function canUsePlanFeature(plan: minimoPlan, feature: "pdf_download" | "stripe_payment_link" | "manual_payment" | "data_export" | "custom_reminder_schedule" | "remove_branding"): boolean {
   if (feature === "custom_reminder_schedule" || feature === "remove_branding") return plan === "pro";
   return plan === "free" || plan === "pro";
 }

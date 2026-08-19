@@ -1,4 +1,4 @@
-# Junvo API Contracts
+# minimo API Contracts
 
 These are implementation contracts. Server actions may replace internal HTTP routes, but inputs, outputs, authorization, errors, and idempotency remain equivalent.
 

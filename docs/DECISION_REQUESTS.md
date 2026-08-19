@@ -2,10 +2,10 @@
 
 This is a historical owner-review brief. The authoritative status and decision for each ADR is maintained in [`DECISIONS.md`](./DECISIONS.md). Accepted ADRs—including ADR-018, ADR-019, and ADR-020—must not be reopened based on the alternatives below. A provider may be reconsidered only if a verified technical incompatibility is discovered and documented in a new or superseding ADR.
 
-## ADR-011 — Junvo brand, domain, and trademark clearance
+## ADR-011 — minimo brand, domain, and trademark clearance
 
-1. **Decision requested:** May Junvo use the name and selected domain for public launch?
-2. **Options:** (A) Proceed with Junvo after trademark/domain clearance; (B) choose a replacement name before launch; (C) use Junvo only as an internal prototype name.
+1. **Decision requested:** May minimo use the name and selected domain for public launch?
+2. **Options:** (A) Proceed with minimo after trademark/domain clearance; (B) choose a replacement name before launch; (C) use minimo only as an internal prototype name.
 3. **Recommendation:** A, subject to documented clearance.
 4. **Benefits / risks / cost:** A preserves current product identity; risk is rebrand exposure if clearance fails; cost is legal search and domain registration. B reduces trademark risk but creates rework. C minimizes launch risk but delays public branding.
 5. **Implementation consequences:** Freeze brand tokens, domains, metadata, email sender identity, legal pages, and redirects only after selection.
@@ -78,15 +78,15 @@ This is a historical owner-review brief. The authoritative status and decision f
 
 1. **Decision requested:** Which Connect account type and charge model represent seller payments?
 2. **Options:** (A) Standard accounts with direct charges; (B) Express accounts with destination charges; (C) Custom accounts with destination or separate charges and transfers.
-3. **Recommendation:** B if Junvo needs controlled onboarding and application fees without becoming the merchant of record; legal/payment review is required.
+3. **Recommendation:** B if minimo needs controlled onboarding and application fees without becoming the merchant of record; legal/payment review is required.
 4. **Benefits / risks / cost:** A lowers platform responsibility but limits control. B balances control and implementation effort but adds platform obligations. C offers maximum control but has the highest compliance, support, and engineering cost.
 5. **Implementation consequences:** Determines onboarding, capability checks, checkout creation, fee collection, refunds, disputes, webhook events, KYC responsibilities, and ledger/reconciliation design.
 6. **Owner selection:** ____________________
 
 ## ADR-022 — Platform and transaction fees
 
-1. **Decision requested:** Will Junvo charge platform fees, and who pays them?
-2. **Options:** (A) No Junvo fee during MVP; (B) transparent percentage fee paid by the seller; (C) transparent fixed/percentage fee passed to the client where legally and commercially permitted.
+1. **Decision requested:** Will minimo charge platform fees, and who pays them?
+2. **Options:** (A) No minimo fee during MVP; (B) transparent percentage fee paid by the seller; (C) transparent fixed/percentage fee passed to the client where legally and commercially permitted.
 3. **Recommendation:** A during MVP unless revenue validation requires B.
 4. **Benefits / risks / cost:** A simplifies disclosure and reconciliation but delays revenue. B creates predictable revenue with seller pricing sensitivity. C may improve seller economics but risks client surprise, legal limits, and checkout complexity.
 5. **Implementation consequences:** Affects Stripe application fees, invoice/payment totals, pricing pages, receipts, refunds, tax treatment, and plan enforcement.

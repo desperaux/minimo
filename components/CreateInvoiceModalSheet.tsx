@@ -218,8 +218,8 @@ export default function CreateInvoiceModalSheet({
           <div className="sheet-creator-badge">
             <div className="sheet-avatar">J</div>
             <div className="sheet-creator-info">
-              <strong className="sheet-creator-name">Junvo Studio</strong>
-              <span className="sheet-creator-sub subtle">hello@junvostudio.com</span>
+              <strong className="sheet-creator-name">minimo Studio</strong>
+              <span className="sheet-creator-sub subtle">hello@minimostudio.com</span>
             </div>
           </div>
 

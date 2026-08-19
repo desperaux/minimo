@@ -1,4 +1,4 @@
-# Junvo Build Documentation
+# minimo Build Documentation
 
 This folder is the source of truth for product and implementation.
 

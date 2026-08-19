@@ -1,12 +1,12 @@
-# Junvo Business Rules
+# minimo Business Rules
 
 These rules are deterministic product behavior. Changes require an accepted entry in `DECISIONS.md` and corresponding tests.
 
 ## 1. Terms
 
 - **Workspace:** seller business account and tenant boundary.
-- **Seller:** workspace using Junvo to issue invoices.
-- **Client:** recipient of an invoice; no Junvo account required.
+- **Seller:** workspace using minimo to issue invoices.
+- **Client:** recipient of an invoice; no minimo account required.
 - **Draft:** editable invoice not yet issued.
 - **Issued version:** immutable financial/document snapshot.
 - **Open balance:** total minus successful or recorded payments and applicable adjustments.
@@ -34,7 +34,7 @@ These rules are deterministic product behavior. Changes require an accepted entr
 6. Total = subtotal − discount + tax.
 7. Amount due = total − successful/recorded payments + valid adjustments.
 
-The MVP supports tax-exclusive pricing only. Automatic tax determination, tax-inclusive pricing, and compound taxes are outside MVP scope. Sellers are responsible for selecting correct tax rates; Junvo does not provide tax advice.
+The MVP supports tax-exclusive pricing only. Automatic tax determination, tax-inclusive pricing, and compound taxes are outside MVP scope. Sellers are responsible for selecting correct tax rates; minimo does not provide tax advice.
 
 ## 3. Invoice numbering
 
@@ -119,7 +119,7 @@ paid â†’ refunded/partially_refunded (P1 decision)
 ## 9. Online payments
 
 - A seller must complete required Stripe Connect onboarding before offering online payment.
-- Junvo does not pool seller funds.
+- minimo does not pool seller funds.
 - Client payment credentials are collected by Stripe-hosted interfaces.
 - Payment amount and currency are created from server-side invoice balance.
 - Payment session creation is idempotent.
@@ -144,8 +144,8 @@ These are not fully supported in MVP unless explicitly enabled.
 - Duplicate successful online payments require support/reconciliation handling and must never be discarded.
 - Refund status follows verified provider events.
 - Partial-payment and deposit behavior is P1 and must not be simulated through incorrect `paid` status.
-- Client invoice disputes are handled through seller contact/support; Junvo does not adjudicate the underlying service dispute.
-- The UI must not promise a refund Junvo cannot execute.
+- Client invoice disputes are handled through seller contact/support; minimo does not adjudicate the underlying service dispute.
+- The UI must not promise a refund minimo cannot execute.
 
 ## 12. Client access
 
@@ -172,8 +172,8 @@ These are not fully supported in MVP unless explicitly enabled.
 - All fees and limits appear before the affected action.
 - Free permits five newly issued invoices per calendar month; Pro permits reasonable fair-use issuance.
 - Both plans retain PDF download and data-export access; downgrade never deletes invoices or clients.
-- Free includes Junvo branding and one automatic reminder schedule; Pro removes branding and permits custom reminder schedules.
-- Junvo charges no transaction/application fee at MVP; sellers pay Stripe's processing fees directly.
+- Free includes minimo branding and one automatic reminder schedule; Pro removes branding and permits custom reminder schedules.
+- minimo charges no transaction/application fee at MVP; sellers pay Stripe's processing fees directly.
 
 ## 15. Time and dates
 

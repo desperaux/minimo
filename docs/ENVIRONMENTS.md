@@ -1,6 +1,6 @@
 # Environments
 
-Junvo uses separate local, preview, staging, and production environments. Data, secrets, cookies, databases, storage, jobs, and vendor accounts must never be shared across environments.
+minimo uses separate local, preview, staging, and production environments. Data, secrets, cookies, databases, storage, jobs, and vendor accounts must never be shared across environments.
 
 ## Environment boundaries
 

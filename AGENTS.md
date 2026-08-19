@@ -1,4 +1,4 @@
-# Junvo coding rules
+# minimo coding rules
 
 The canonical project guardrails are in [`docs/AGENTS.md`](./docs/AGENTS.md). Read that file and the project documentation before changing production behavior.
 

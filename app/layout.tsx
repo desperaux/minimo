@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Junvo — Send invoices. Get paid. Move on.",
+  title: "minimo — Send invoices. Get paid. Move on.",
   description: "Simple invoicing for independent businesses.",
 };
 
