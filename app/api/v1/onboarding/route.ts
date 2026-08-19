@@ -20,6 +20,12 @@ export async function POST(request: Request) {
     if (error instanceof Error && (error.message.includes("valid") || error.message.includes("invalid"))) {
       return Response.json(failure("VALIDATION_FAILED", error.message, requestId), { status: 400 });
     }
+    if (error instanceof Error && error.message.includes("DATABASE_URL")) {
+      return Response.json(failure("PROVIDER_UNAVAILABLE", "Database configuration is missing. Add DATABASE_URL and redeploy.", requestId), { status: 503, headers: { "Retry-After": "60" } });
+    }
+    if (error instanceof Error && /relation \"(users|workspaces|workspace_members)\" does not exist/i.test(error.message)) {
+      return Response.json(failure("PROVIDER_UNAVAILABLE", "Database setup is incomplete. Run the database migration and redeploy.", requestId), { status: 503, headers: { "Retry-After": "60" } });
+    }
     return Response.json(failure("INTERNAL_ERROR", "We could not save your workspace. Try again.", requestId, { retryable: true }), { status: 500 });
   }
 }

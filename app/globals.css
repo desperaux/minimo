@@ -1708,7 +1708,7 @@ label {
 .error-summary {
   display: grid;
   gap: 4px;
-  margin: -12px 0 20px;
+  margin: 20px 0;
   padding: 14px 16px;
   border: 1px solid var(--danger-border);
   border-radius: var(--radius-control);
@@ -1719,6 +1719,32 @@ label {
 
 .error-summary span {
   color: var(--ink-700);
+}
+
+.onboarding-summary {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-raised);
+}
+
+.onboarding-summary > div {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+}
+
+.onboarding-summary span {
+  color: var(--ink-500);
+}
+
+.onboarding-summary strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .field-error {
