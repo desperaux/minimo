@@ -34,6 +34,8 @@ Create separate Neon databases for preview, staging, and production. Run the mig
 DATABASE_URL="..." npm run db:migrate
 ```
 
-In Vercel, configure `DATABASE_URL` and the Clerk variables separately for each environment. Use `npm run build` as the build command; Vercel runs the Next.js serverless output automatically.
+In Vercel, configure `DATABASE_URL` and the Clerk variables separately for each environment. Vercel uses the repository's `vercel-build` script, which applies the idempotent foundation migration before building the serverless output. A deployment therefore fails before serving traffic if its database is unavailable or the migration cannot be applied.
+
+For an existing deployment that already shows a missing-schema error, redeploy after setting `DATABASE_URL` for the same Vercel environment. The build will apply `migrations/0001_identity_workspace.sql` before the new application code goes live.
 
 No live payment, email, storage, or job credentials are required for this slice.
